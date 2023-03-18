@@ -7,6 +7,7 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import { Geolocation } from 'react-native';
 import {
   SafeAreaView,
   ScrollView,
@@ -24,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import LocationTracker from './components/LocationTracker';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -31,6 +33,7 @@ type SectionProps = PropsWithChildren<{
 
 function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -51,6 +54,7 @@ function Section({children, title}: SectionProps): JSX.Element {
         ]}>
         {children}
       </Text>
+      <Text><LocationTracker></LocationTracker></Text>
     </View>
   );
 }
